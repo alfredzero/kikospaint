@@ -1,0 +1,255 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,700;1,400&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Fullscreen App */
+.App {
+  width: 100vw;
+  height: 100vh;
+  user-select: none;
+  position: relative; /* Ensures components layer correctly */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Hero Section */
+.hero {
+  width: 100%;
+  height: 40vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #1a1a1a; /* Dark gray */
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+/* Hero Title */
+.hero-title {
+  font-size: 4rem; /* Default size */
+  font-weight: 800;
+  letter-spacing: 2px;
+  max-width: 90%;
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Configurator always at the bottom */
+.configurator {
+  width: 100%;
+  max-width: 480px;
+  padding: 16px;
+  background: rgba(0, 0, 0, 0.9);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 12px 12px 0 0;
+}
+
+/* Configurator Section Title */
+.configurator__section__title {
+  text-transform: uppercase;
+  font-weight: bold;
+  font-family: "Poppins", sans-serif;
+  color: white;
+}
+
+/* Configurator Section Values */
+.configurator__section__values {
+  display: flex;
+  flex-direction: row;
+  gap: 32px;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 16px 0;
+}
+
+/* Item Styling */
+.item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: all 0.4s ease-in-out;
+}
+
+.item:hover {
+  cursor: pointer;
+  opacity: 0.9;
+}
+
+/* Item Dot */
+.item__dot {
+  width: 32px;
+  height: 32px;
+  border-radius: 100%;
+  border: solid 2px #999999;
+}
+
+/* Active Item Dot */
+.item.item--active .item__dot {
+  border: solid 2px white;
+}
+
+/* Item Label */
+.item__label {
+  text-align: center;
+  font-weight: bold;
+  font-size: 12px;
+  color: #aaa;
+  text-transform: capitalize;
+}
+
+.item.item--active .item__label {
+  color: white;
+}
+
+/* Loader Overlay */
+.loader-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: black;
+  z-index: 20; /* Ensures it's above everything while loading */
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out;
+}
+
+/* Loader GIF */
+.loader-gif {
+  width: 150px; /* Adjust size as needed */
+  height: 150px;
+}
+
+/* Fade-out effect for loader */
+.fade-out {
+  opacity: 0;
+  pointer-events: none; /* Prevents interactions after fade-out */
+}
+
+/* ========================== */
+/* ADDITIONAL CSS STYLES */
+/* ========================== */
+
+/* Model Selection Menu */
+.model-selection {
+  display: flex;
+  gap: 24px;
+  margin-top: 16px;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* Model Selection Buttons */
+.model-link {
+  background: none;
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+  color: #7d7d7d;
+  transition: all 0.3s ease-in-out;
+  font-size: 18px;
+}
+
+.model-link:hover {
+  color: #ccc;
+}
+
+.model-link.active {
+  color: #ff7e5f;
+  text-decoration: underline;
+}
+
+/* Enhanced Buttons */
+.button {
+  background: linear-gradient(90deg, #ff7e5f, #feb47b);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  transition: all 0.3s ease-in-out;
+}
+
+.button:hover {
+  background: linear-gradient(90deg, #feb47b, #ff7e5f);
+  transform: scale(1.05);
+}
+
+/* Responsive Adjustments */
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  /* Tablets */
+  .hero-title {
+    font-size: 3.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Small tablets & large phones */
+  .hero {
+    height: 35vh;
+  }
+
+  .hero-title {
+    font-size: 3rem;
+  }
+}
+
+@media (max-width: 640px) {
+  /* Mobile devices */
+  .hero {
+    height: 30vh;
+    padding: 10px;
+  }
+
+  .hero-title {
+    font-size: 2rem;
+    letter-spacing: 1px;
+  }
+}
+
+.configurator {
+  width: 90%;
+  bottom: 15vh;
+  right: 5%;
+}
+
+.model-selection {
+  flex-direction: column;
+  gap: 12px;
+}
+
+.model-link {
+  font-size: 16px;
+}
+
+.button {
+  font-size: 14px;
+  padding: 10px 20px;
+}
+
+/* Smooth Transitions */
+* {
+  transition: all 0.3s ease-in-out;
+}
