@@ -1,1 +1,6 @@
-{"type": "commonjs"}
+{
+  "build": "next build",
+  "dev": "next dev",
+  "start": "next start",
+  "type": "commonjs"
+}
